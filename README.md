@@ -82,3 +82,69 @@ RUN_DAEMON="yes"
 OPTIONS="-l -s /var/lib/tftpboot"
 
 ```
+
+restart tftpd
+
+```
+/etc/init.d/tftpd-hpa restart
+
+```
+
+Create bootable system
+
+```
+
+cd /var/lib/tftpboot
+wget http://ftp.debian.org/debian/dists/bullseye/main/installer-amd64/current/images/netboot/pxelinux.0
+cp /pxeroot/vmlinuz ./
+cp /pxeroot/initrd.img ./
+mkdir pxelinux.cfg
+
+
+```
+
+edit pxelinux.cfg/default
+
+```
+
+DISPLAY boot.txt2
+F1 f1.txt
+...
+
+DEFAULT linux
+
+LABEL linux
+    kernel vmlinuz
+    append vga=normal initrd=initrd.img ramdisk_size=4096 root=/dev/nfs nfsroot=192.168.100.1:/pxeroot rw --
+
+PROMPT 0
+TIIMEOUT 0
+
+```
+
+edit /etc/exports
+
+```
+
+/pxeroot    192.168.100.0/255.255.255.0(rw,sync,no_root_squash,no_subtree_check)
+
+```
+
+restart nfs
+
+```
+/etc/init.d/nfs-kernel-server restart
+```
+
+Patch glitch with ldlinux.c32 on debian
+
+```
+cp /usr/lib/syslinux/modules/bios/ldlinux.c32 /var/lib/tftpboot
+```
+
+
+
+
+
+
+
