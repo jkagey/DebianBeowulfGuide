@@ -30,15 +30,14 @@ tmpfs      /tmp       tmpfs  defaults    0   1
 ```
 Install packages needed inside chroot
 ```
-
 apt install linux-image-amd64
-
 
 ```
 Leave Chrooot
 
 ```
 exit
+
 ```
 
 edit /etc/dhcpd/dhcpd.conf
@@ -66,7 +65,9 @@ ifconfig enp0s8 192.168.100.1
 run dhcpd
 
 ```
+
 dhcpd
+
 ```
 
 
