@@ -1,4 +1,4 @@
-# Debian11BeowulfGuide Bullseye
+# Debian11 (Bullseye) Beowulf cluster Guide
 
 
 Install necessary services
