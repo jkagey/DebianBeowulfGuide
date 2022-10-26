@@ -115,7 +115,7 @@ DEFAULT linux
 
 LABEL linux
     kernel vmlinuz
-    append vga=normal initrd=initrd.img ramdisk_size=4096 root=/dev/nfs nfsroot=192.168.100.1:/pxeroot rw --
+    append vga=normal initrd=/initrd.img ramdisk_size=4096 root=/dev/nfs nfsroot=192.168.100.1:/pxeroot ip=dhcp rw --
 
 PROMPT 0
 TIIMEOUT 0
