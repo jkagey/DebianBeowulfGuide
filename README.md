@@ -11,6 +11,15 @@ cd /pxeroot
 debootstrap bullseye /pxeroot
 
 ```
+chroot pxeroot
+
+```
+
+chroot /pxeroot
+
+```
+
+
 Edit fstab inside of chroot
 ```
 #/etc/fstab: static file system information.
@@ -64,6 +73,12 @@ dhcpd
 edit /etc/default/tftpd-hpa
 
 ```
-
+#/etc/default/tftpd-hpa
+TFTP_USERNAME="tftp"
+TFTP_DIRECTORY="/var/lib/tftpboot"
+TFTP_ADDRESS=":69"
+TFTP_OPTIONS="--secure"
+RUN_DAEMON="yes"
+OPTIONS="-l -s /var/lib/tftpboot"
 
 ```
