@@ -2,11 +2,11 @@
 
 
 <p>
-apt install tftpd-hpa isc-dhcp-server debootstrap nfs-kernel-server
+> apt install tftpd-hpa isc-dhcp-server debootstrap nfs-kernel-server
 
-mkdir /pxeroot
+> mkdir /pxeroot
   
-cd /pxeroot
+> cd /pxeroot
   
-debootstrap bullseye /pxeroot
+> debootstrap bullseye /pxeroot
 </p>
