@@ -4,6 +4,7 @@
 Install necessary services
 ```
 apt install tftpd-hpa isc-dhcp-server debootstrap nfs-kernel-server net-tools
+
 mkdir /pxeroot
   
 cd /pxeroot
@@ -33,7 +34,7 @@ Install packages needed inside chroot
 apt install linux-image-amd64
 
 ```
-Leave Chrooot
+Leave Chroot
 
 ```
 exit
@@ -58,7 +59,7 @@ set static ip on interface which you will be serving ip to nodes (you will want 
 
 ```
 
-ifconfig enp0s8 192.168.100.1
+ifconfig ens33:0 192.168.100.1 up
 
 ```
 
@@ -69,8 +70,10 @@ run dhcpd
 dhcpd
 
 ```
-
-
+create directory for tftpd-hpa
+```
+mkdir /var/lib/tftpboot
+```
 edit /etc/default/tftpd-hpa
 
 ```
